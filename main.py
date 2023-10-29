@@ -33,7 +33,7 @@ def cat_img():
     url = domain_name + "cat/says/HEY?json=true"
     response = requests.get(url)
     if response.status_code == 200:
-        return domain_name + response.json()['url']
+        return domain_name + "cat/" response.json()['_id'] + "/says/HEY"
     else:
         return "Неудалось получить изображение кота. Попробуй позже"
 
