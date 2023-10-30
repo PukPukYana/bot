@@ -20,8 +20,10 @@ with open('train.json', 'r') as file:
 @app.route('/', methods=['POST'])
 def int():
     data = request.get_json()['data']
-    intent = model_roberta([data], dataset)[0]
-    return jsonify({"data": intent})
+    intent = model_roberta([data], dataset)
+    print(intent)#Выводим интент, чтоб посмотреть, что в нем
+    return jsonify({"data": intent[0]})
+
 
 if __name__ == '__main__':
     app.run(port=5000)

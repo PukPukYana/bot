@@ -87,6 +87,7 @@ def echo_all(message):
         user_states[user_id] = Modes.INITIAL
         bot.reply_to(
             message, "Сейчас мы можем снова вернуться к картинкам. Если ты вышел из режима по ошибке, дай мне знать, что ты хочешь к нему вернуться")
-
+    elif intent == "null" and mode == Modes.INITIAL:
+         bot.reply_to(message,  "Я не смог понять тебя")
 
 bot.infinity_polling()
